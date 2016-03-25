@@ -11,7 +11,7 @@ System.register(['angular2/angular2', 'angular2/http'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var angular2_1, http_1;
-    var AppComponent;
+    var CountComponent, AppComponent;
     return {
         setters:[
             function (angular2_1_1) {
@@ -21,6 +21,20 @@ System.register(['angular2/angular2', 'angular2/http'], function(exports_1) {
                 http_1 = http_1_1;
             }],
         execute: function() {
+            CountComponent = (function () {
+                function CountComponent() {
+                }
+                CountComponent = __decorate([
+                    angular2_1.Component({
+                        selector: 'counter',
+                        template: "<div class=\"counterDiv\">{{heroes.length}}</div>",
+                        properties: ['heroes'],
+                        styles: [".counterDiv{color: blue; font-size: 5em;font-family: fantasy;}"]
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], CountComponent);
+                return CountComponent;
+            })();
             // @Component is an annotation that applies to the AppComponent class below
             //
             // **selector** determines the TagName of the new HTML element: <demo-component>
@@ -77,10 +91,10 @@ System.register(['angular2/angular2', 'angular2/http'], function(exports_1) {
                         selector: 'demo-component',
                         templateUrl: "/partials/heroes.html",
                         providers: [http_1.HTTP_PROVIDERS],
-                        directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES],
-                        encapsulation: angular2_1.ViewEncapsulation.Native,
-                        styles: ["\n    @import url(/bootstrap/dist/css/bootstrap.min.css);\n    a { cursor: pointer; }\n    .list-group-item:first-of-type {\n      border-top-left-radius: 4px;\n      border-top-right-radius: 4px;\n    }\n  "],
-                    }),
+                        directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES, CountComponent],
+                        encapsulation: angular2_1.ViewEncapsulation.None,
+                        styles: ["\n@import url(/bootstrap/dist/css/bootstrap.min.css);\na { cursor: pointer; }\n.list-group-item:first-of-type {\nborder-top-left-radius: 4px;\nborder-top-right-radius: 4px;\n}\n"],
+                    }), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], AppComponent);
                 return AppComponent;
